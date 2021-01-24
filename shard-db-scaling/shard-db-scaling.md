@@ -273,7 +273,7 @@ This lab assumes you have already completed the following:
 
    
 
-6. The result likes the following. Wait several minutes, compare the APS values with the previous 2 sharded database.
+6. The result likes the following. Wait several minutes, compare the APS values with the previous 2 sharded database. (Note: due to the application deployed in the shard director VM, choose larger VM shape will improve the performance)
 
    ```
    RO Queries | RW Queries | RO Failed  | RW Failed  | APS 

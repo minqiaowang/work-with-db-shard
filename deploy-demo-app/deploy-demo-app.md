@@ -155,12 +155,12 @@ This lab assumes you have already completed the following:
 
    
 
-5. View the content of the `demo_app_ext.sql`. Modify the sys user password to your own. Make sure the connect string is correct.
+5. Edit the content of the `demo_app_ext.sql`. Modify the sys user password to your own in the two connect strings. Make sure the connect string is correct.
 
    ```
-   [oracle@sdbsd0 sql]$ <copy>cat demo_app_ext.sql</copy> 
+   [oracle@sdbsd0 sql]$ <copy>vi demo_app_ext.sql</copy> 
    -- Create catalog monitor packages
-   connect sys/<your-own-sys-password>@sdbsc0:1521/sdbpdb as sysdba
+   connect sys/your-own-sys-password@sdbsc0:1521/sdbpdb as sysdba
    @catalog_monitor.sql
    
    connect app_schema/App_Schema_Pass_123@sdbsc0:1521/sdbpdb;
@@ -175,7 +175,7 @@ This lab assumes you have already completed the following:
    alter session disable shard ddl;
    
    -- Allow a special query for dbaview
-   connect sys/<your-own-sys-password>@sdbsc0:1521/sdbpdb as sysdba
+   connect sys/your-own-sys-password@sdbsc0:1521/sdbpdb as sysdba
    
    -- For demo app purposes
    grant shard_monitor_role, gsmadmin_role to app_schema;
@@ -349,7 +349,7 @@ This lab assumes you have already completed the following:
 
    
 
-9. Cat the `demo.properties` file, make sure it's like the following. Because we have no data guard standby database setup in this lab, we also use the `oltp_rw_srvc.sdb.oradbcloud` for the readonly service.
+9. View the `demo.properties` file, make sure it's like the following. Because we have no data guard standby database setup in this lab, we also use the `oltp_rw_srvc.sdb.oradbcloud` for the readonly service.
 
    ```
    name=demo

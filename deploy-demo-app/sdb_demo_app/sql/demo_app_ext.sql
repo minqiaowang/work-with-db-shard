@@ -1,5 +1,5 @@
 -- Create catalog monitor packages
-connect sys/<your-own-sys-password>@sdbsc0:1521/sdbpdb as sysdba
+connect sys/your-own-sys-password@sdbsc0:1521/sdbpdb as sysdba
 @catalog_monitor.sql
 
 connect app_schema/App_Schema_Pass_123@sdbsc0:1521/sdbpdb;
@@ -14,7 +14,7 @@ CREATE OR REPLACE VIEW SAMPLE_ORDERS AS
 alter session disable shard ddl;
 
 -- Allow a special query for dbaview
-connect sys/<your-own-sys-password>@sdbsc0:1521/sdbpdb as sysdba
+connect sys/your-own-sys-password@sdbsc0:1521/sdbpdb as sysdba
 
 -- For demo app purposes
 grant shard_monitor_role, gsmadmin_role to app_schema;

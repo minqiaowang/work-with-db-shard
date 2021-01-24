@@ -20,7 +20,11 @@
             "filename": "../../deploy-demo-app/deploy-demo-app.md"
         },
         {
-            "title": "Lab 4: Scaling the Sharded Database",
+            "title": "Lab 4: Data Depend Route",
+            "filename": "../../data-depend-route/data-depend-route.md"
+        },
+        {
+            "title": "Lab 5: Scaling the Sharded Database",
             "filename": "../../shard-db-scaling/shard-db-scaling.md"
         }
     ]

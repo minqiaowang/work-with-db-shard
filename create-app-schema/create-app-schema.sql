@@ -5,7 +5,7 @@ spool /home/oracle/create_app_schema.lst
 REM
 REM Connect to the Shard Catalog and Create Schema
 REM
-connect sys/<your-sys-password>@sdbsc0:1521/sdbpdb as sysdba
+connect sys/your-own-sys-password@sdbsc0:1521/sdbpdb as sysdba
 REM alter session set container=catapdb;
 alter session enable shard ddl;
 create user app_schema identified by App_Schema_Pass_123;

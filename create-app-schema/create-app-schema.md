@@ -44,7 +44,7 @@ This lab assumes you have already completed the following:
 
    
 
-3. Review the content in the sql scripts file. Modify the sys user password in the connect string `connect sys/sdwAf1Z82_wX5M_vm_0@sdbsc0:1521/sdbpdb as sysdba` to the catalog database. Make sure the connect string for the demo app_schema user to the catalog database is correct in your environment: `connect app_schema/App_Schema_Pass_123@sdbsc0:1521/sdbpdb`.
+3. Review the content in the sql scripts file. Modify the sys user password in the connect string `connect sys/your-own-sys-password@sdbsc0:1521/sdbpdb as sysdba` to the catalog database. Make sure the connect string for the demo app_schema user to the catalog database is correct in your environment: `connect app_schema/App_Schema_Pass_123@sdbsc0:1521/sdbpdb`.
 
    ```
    [oracle@cata ~]$ <copy>cat create-app-schema.sql</copy>  
@@ -55,7 +55,7 @@ This lab assumes you have already completed the following:
    REM
    REM Connect to the Shard Catalog and Create Schema
    REM
-   connect sys/sdwAf1Z82_wX5M_vm_0@sdbsc0:1521/sdbpdb as sysdba
+   connect sys/your-own-sys-password@sdbsc0:1521/sdbpdb as sysdba
    REM alter session set container=catapdb;
    alter session enable shard ddl;
    create user app_schema identified by App_Schema_Pass_123;

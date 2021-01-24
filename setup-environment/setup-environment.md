@@ -105,7 +105,7 @@ When using Resource Manager to deploy an environment, execute a terraform **Appl
 
     ![image-20210123101504556](images/image-20210123101504556.png)
 
-3. Write down all the public ips and sys password for later use. It's same like the following. All the pdb name in the catalog and shard database is named `sdbpdb` by default.
+3. Write down all the public ips and sys password for later use. It's same like the following. All the pdb name in the catalog and shard database is named `sdbpdb` by default. For example: the sys user password is: `sd_yonN176_uGAE009qa`
 
     | Public IP       | Hostname | Act as              | PDB name |
     | --------------- | -------- | ------------------- | -------- |
