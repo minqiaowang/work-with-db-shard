@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you will setup the shard database environment using Oracle Resource Manager and Terraform. The terraform script build the following:
+In this lab you will setup the shard database environment using Oracle Resource Manager and Terraform. The terraform script builds the following:
 
 1. Compute service for Shard Directors (based on the shape that user wants to select).
 2. Database service for Shard and Catalog databases (based on the shape that user wants to select).
@@ -61,7 +61,7 @@ Click on the link below to download the Resource Manager zip files you need to b
 
     ![image-20210123091242011](images/image-20210123091242011.png)
 
-7. In the replication sector, you can set the number of the replication factor. If the selected value is 1, then only a single replica set of primary shards will be created. If the selected value is 2, then both primary shards replica set and standby shards replica set will be created. In this workshop, we will not use the standby shard, so accept the default value **1**.
+7. In the replication sector, you can set the number of the replication factor. If the selected value is 1, then only a single replica set of the primary shard will be created. If the selected value is 2, then both the primary shard replica set and standby shard replica set will be created. In this workshop, we will not use the standby shard, so accept the default value **1**.
 
     ![image-20210123092049916](images/image-20210123092049916.png)
 
@@ -101,11 +101,11 @@ When using Resource Manager to deploy an environment, execute a terraform **Appl
 
     
 
-2. Once this job succeeds, you will get an apply complete notification from Terraform.  Click **Outputs**,  you can get the **public ip address** for the shard director, shard catalog and shard database. You can also found the sys user password for the catalog database and shard database. 
+2. Once this job succeeds, you will get an apply complete notification from Terraform.  Click **Outputs**,  you can get the **public ip address** for the shard director, shard catalog and shard database. You can also get the sys user password for the catalog database and shard database. 
 
     ![image-20210123101504556](images/image-20210123101504556.png)
 
-3. Write down all the public ips and sys password for later use. It's same like the following. All the pdb name in the catalog and shard database is named `sdbpdb` by default. For example: the sys user password is: `sd_yonN176_uGAE009qa`
+3. Write down all the public ip's and sys password for later use. It will be similar to the following. All the pdb name in the catalog and shard database is named `sdbpdb` by default. For example: the sys user password is: `sd_yonN176_uGAE009qa`
 
     | Public IP       | Hostname | Act as              | PDB name |
     | --------------- | -------- | ------------------- | -------- |
@@ -116,7 +116,7 @@ When using Resource Manager to deploy an environment, execute a terraform **Appl
 
     
 
-You now have a fully functional Oracle shard database which used system managed shard method. 
+You now have a fully functional Oracle shard database which uses the system managed shard method. 
 
 ## **Step 3:** Verify the Shard Database
 
@@ -168,7 +168,7 @@ You now have a fully functional Oracle shard database which used system managed 
 
    
 
-5. Run the following command to check the services in the director. You can found the default service named `GDS$CATALOG.oradbcloud` and `GDS$COORDINATOR.oradbcloud` which listening in port 1522 and connect to the catalog instance..
+5. Run the following command to check the services in the director. You can find the default service named `GDS$CATALOG.oradbcloud` and `GDS$COORDINATOR.oradbcloud` which is listening on port 1522 and connected to the catalog instance.
 
    ```
    [oracle@sdbsd0 ~]$ <copy>lsnrctl status sdbsd0</copy>

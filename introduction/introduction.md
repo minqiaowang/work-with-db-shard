@@ -17,9 +17,9 @@ Oracle Sharding provides superior run-time performance and simpler life-cycle ma
 
 In this workshop, you will
 
-- Prepare the shad database environment
-- Working with the shard database.
-- Extent the shard database with the third shard.
+- Prepare the shard database environment
+- Work with the shard database.
+- Extend the shard database with the third shard.
 
 
 
