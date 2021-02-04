@@ -11,7 +11,7 @@ Estimated Lab Time: 30 minutes.
 In this lab, you will perform the following steps:
 - Create the schema user, tablespace set, sharded tables and duplicated tables
 - Verify that the DDLs have been propagated to all the shards
-- Create a global service use to connect to the sharded database
+- Create a global service used to connect to the sharded database
 
 ### Prerequisites
 
