@@ -234,7 +234,7 @@ This lab assumes you have already completed the following:
    
    
    
-3. Manually update the monitored shard list. Exit SQLPLUS.
+3. Manually update the monitored shard list. The package `dbms_global_views` is used by the monitor tools to monitor the status of shards. If you skip this step, the monitor tools will not show the status of the latest added shard database. 
 
    ```
    SQL> <copy>exec dbms_global_views.create_all_database_links();</copy>
@@ -246,7 +246,7 @@ This lab assumes you have already completed the following:
    
    
    
-3. Exit the sqlplus.
+4. Exit the sqlplus.
 
    ```
    SQL> <copy>exit</copy>
@@ -257,7 +257,7 @@ This lab assumes you have already completed the following:
 
    
 
-4. Change the directory to `sdb_demo_app`. 
+5. Change the directory to `sdb_demo_app`. 
 
    ```
    [oracle@sdbsd0 ~]$ <copy>cd sdb_demo_app<copy>
@@ -266,7 +266,7 @@ This lab assumes you have already completed the following:
 
    
 
-5. Start the workload by executing command:
+6. Start the workload by executing command:
 
    ```
    [oracle@sdbsd0 sdb_demo_app]$ <copy>./run.sh demo</copy>
@@ -274,7 +274,7 @@ This lab assumes you have already completed the following:
 
    
 
-6. The result looks like the following. Wait several minutes, compare the APS values with the previous 2 sharded database. (Note: due to the application deployed in the shard director VM, choose a larger VM shape when in the setup shard environment to improve the performance)
+7. The result looks like the following. Wait several minutes, compare the APS values with the previous 2 sharded database. (Note: due to the application deployed in the shard director VM, choose a larger VM shape when in the setup shard environment to improve the performance)
 
    ```
    RO Queries | RW Queries | RO Failed  | RW Failed  | APS 
@@ -297,7 +297,7 @@ This lab assumes you have already completed the following:
 
    
 
-7. Open another terminal, connect to the catalog host, switch to oracle user. Change the directory to `sdb_demo_app`.
+8. Open another terminal, connect to the catalog host, switch to oracle user. Change the directory to `sdb_demo_app`.
 
    ```
    $ ssh -i labkey opc@xxx.xxx.xxx.xxx
@@ -313,7 +313,7 @@ This lab assumes you have already completed the following:
 
    
 
-8. Start the monitoring tool via the following command. (Note: due to the resource limit, start monitor may impact the application performance).
+9. Start the monitoring tool via the following command. (Note: due to the resource limit, start monitor may impact the application performance).
 
    ```
    [oracle@sdbsd0 sdb_demo_app]$ <copy>./run.sh monitor</copy>
@@ -325,17 +325,17 @@ This lab assumes you have already completed the following:
 
    
 
-9. From you laptop, launch a browser and use the URL: `http://xxx.xxx.xxx.xxx:8081`. Using the public ip address of the shard director host and the port number is 8081.
+10. From you laptop, launch a browser and use the URL: `http://xxx.xxx.xxx.xxx:8081`. Using the public ip address of the shard director host and the port number is 8081.
 
    ![image-20210124103206554](images/image-20210124103206554.png)
 
    
 
-10. Scroll down the screen, you can see the Last inserted orders:
+11. Scroll down the screen, you can see the Last inserted orders:
 
-  ![image-20210124103246650](images/image-20210124103246650.png)
+   ![image-20210124103246650](images/image-20210124103246650.png)
 
-  
+   
 
-11. Press `Ctrl+C` to cancel the demo in both of the terminal.
+12. Press `Ctrl+C` to cancel the demo in both of the terminal.
 
