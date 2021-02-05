@@ -2,7 +2,7 @@
 
 ## Introduction
 
-You scale the shard database without impact the applications and zero downtime.
+You can scale the shard database with no impact to the application and with zero downtime.
 
 Estimated Lab Time: 45 minutes.
 
@@ -38,7 +38,7 @@ This lab assumes you have already completed the following:
 
    ![image-20210124090609055](images/image-20210124090609055.png)
 
-5. There are two variables can be modified in the stack: Number of the shard database and number of the shard director.
+5. There are two variables that can be modified in the stack: Number of the shard database and number of the shard director.
 
    ![image-20210124090935424](images/image-20210124090935424.png)
 
@@ -109,7 +109,7 @@ This lab assumes you have already completed the following:
 
    
 
-3. Run the following command every minute or two to see the progress of automatic rebalancing of chunks. You can see there are 4 chunks need to move to the third shard.
+3. Run the following command every minute or two to see the progress of automatic rebalancing of chunks. You can see there are 4 chunks that need to move to the third shard.
 
    ```
    GDSCTL> <copy>config chunks -show_reshard</copy>
@@ -273,7 +273,7 @@ This lab assumes you have already completed the following:
 
    
 
-6. The result likes the following. Wait several minutes, compare the APS values with the previous 2 sharded database. (Note: due to the application deployed in the shard director VM, choose larger VM shape when in the setup shard environment will improve the performance)
+6. The result looks like the following. Wait several minutes, compare the APS values with the previous 2 sharded database. (Note: due to the application deployed in the shard director VM, choose a larger VM shape when in the setup shard environment to improve the performance)
 
    ```
    RO Queries | RW Queries | RO Failed  | RW Failed  | APS 
