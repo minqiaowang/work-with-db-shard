@@ -194,6 +194,7 @@ This lab assumes you have already completed the following:
 7. Observe that the “services” are automatically brought up on the newly added shard.
 
    ```
+   GDSCTL> services
    Service "oltp_rw_srvc.sdb.oradbcloud" has 3 instance(s). Affinity: ANYWHERE
       Instance "sdb%1", name: "sdbsh0", db: "sdbsh0_icn1gr_sdbpdb", region: "apseoul1", status: ready.
       Instance "sdb%11", name: "sdbsh1", db: "sdbsh1_icn1xv_sdbpdb", region: "apseoul1", status: ready.
