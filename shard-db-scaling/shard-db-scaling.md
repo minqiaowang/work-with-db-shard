@@ -260,7 +260,7 @@ This lab assumes you have already completed the following:
 5. Change the directory to `sdb_demo_app`. 
 
    ```
-   [oracle@sdbsd0 ~]$ <copy>cd sdb_demo_app<copy>
+   [oracle@sdbsd0 ~]$ <copy>cd sdb_demo_app</copy>
    [oracle@sdbsd0 sdb_demo_app]$ 
    ```
 
