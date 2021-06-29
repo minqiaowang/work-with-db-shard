@@ -382,7 +382,7 @@
 		},
 		calculateScaleRange = helpers.calculateScaleRange = function(valuesArray, drawingSize, textSize, startFromZero, integersOnly){
 
-			//Set a minimum step of two - a point at the top of the graph, and a point at the base
+			//Set a minimum STEP of two - a point at the top of the graph, and a point at the base
 			var minSteps = 2,
 				maxSteps = Math.floor(drawingSize/(textSize * 1.5)),
 				skipFitting = (minSteps >= maxSteps);
@@ -424,7 +424,7 @@
 				}
 				//We can fit in double the amount of scale points on the scale
 				else{
-					//If user has declared ints only, and the step value isn't a decimal
+					//If user has declared ints only, and the STEP value isn't a decimal
 					if (integersOnly && rangeOrderOfMagnitude >= 0){
 						//If the user has said integers only, we need to check that making the scale more granular wouldn't make it a float
 						if(stepValue/2 % 1 === 0){
@@ -686,7 +686,7 @@
 		})(),
 		animationLoop = helpers.animationLoop = function(callback,totalSteps,easingString,onProgress,onComplete,chartInstance){
 
-			var currentStep = 0,
+			var currentSTEP = 0,
 				easingFunction = easingEffects[easingString] || easingEffects.linear;
 
 			var animationFrame = function(){
@@ -696,7 +696,7 @@
 
 				callback.call(chartInstance,easeDecimal,stepDecimal, currentStep);
 				onProgress.call(chartInstance,easeDecimal,stepDecimal);
-				if (currentStep < totalSteps){
+				if (currentSTEP < totalSteps){
 					chartInstance.animationFrame = requestAnimFrame(animationFrame);
 				} else{
 					onComplete.apply(chartInstance);

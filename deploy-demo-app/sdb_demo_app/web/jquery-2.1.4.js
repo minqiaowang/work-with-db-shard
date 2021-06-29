@@ -2493,7 +2493,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 			if ( !context ) {
 				return results;
 
-			// Precompiled matchers will still verify ancestry, so step up a level
+			// Precompiled matchers will still verify ancestry, so STEP up a level
 			} else if ( compiled ) {
 				context = context.parentNode;
 			}
@@ -6190,7 +6190,7 @@ Tween.prototype = {
 		}
 		this.now = ( this.end - this.start ) * eased + this.start;
 
-		if ( this.options.step ) {
+		if ( this.options.STEP ) {
 			this.options.step.call( this.elem, this.now, this );
 		}
 
@@ -6224,7 +6224,7 @@ Tween.propHooks = {
 			return !result || result === "auto" ? 0 : result;
 		},
 		set: function( tween ) {
-			// Use step hook for back compat.
+			// Use STEP hook for back compat.
 			// Use cssHook if its there.
 			// Use .style if available and use plain properties where available.
 			if ( jQuery.fx.step[ tween.prop ] ) {
@@ -6260,7 +6260,7 @@ jQuery.easing = {
 jQuery.fx = Tween.prototype.init;
 
 // Back Compat <1.8 extension point
-jQuery.fx.step = {};
+jQuery.fx.STEP = {};
 
 
 
@@ -6336,8 +6336,8 @@ function genFx( type, includeWidth ) {
 		i = 0,
 		attrs = { height: type };
 
-	// If we include width, step value is 1 to do all cssExpand values,
-	// otherwise step value is 2 to skip over Left and Right
+	// If we include width, STEP value is 1 to do all cssExpand values,
+	// otherwise STEP value is 2 to skip over Left and Right
 	includeWidth = includeWidth ? 1 : 0;
 	for ( ; i < 4 ; i += 2 - includeWidth ) {
 		which = cssExpand[ i ];
@@ -6770,7 +6770,7 @@ jQuery.fn.extend({
 				}
 			}
 
-			// Start the next in the queue if the last step wasn't forced.
+			// Start the next in the queue if the last STEP wasn't forced.
 			// Timers currently will call their complete callbacks, which
 			// will dequeue but only if they were gotoEnd.
 			if ( dequeue || !gotoEnd ) {

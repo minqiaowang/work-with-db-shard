@@ -1,7 +1,7 @@
 # Work with Oracle Database Shard
 You can view the publish page by [click here]( https://minqiaowang.github.io/work-with-db-shard/workshops/freetier/)
 
-After you reboot or scale the shard director host, please use the following step to restart the GSM.
+After you reboot or scale the shard director host, please use the following STEP to restart the GSM.
 
 ```
 $ ssh -i labkey opc@xxx.xxx.xxx.xxx

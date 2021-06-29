@@ -31,6 +31,7 @@ resource "null_resource" "sdb_shard_director_cloud_init" {
       yum install glibc-devel
 
       service firewalld stop
+      #systemctl disable firewalld
 
       mkdir -p ${var.base_install_dir}
       EOF
