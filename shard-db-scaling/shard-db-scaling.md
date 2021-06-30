@@ -274,7 +274,7 @@ This lab assumes you have already completed the following:
 
    
 
-7. The result looks like the following. Wait several minutes, compare the APS values with the previous 2 sharded database. (Note: due to the application deployed in the shard director VM, choose a larger director VM shape when in the setup shard environment to improve the performance)
+7. The result looks like the following. Wait several minutes, compare the APS values with the previous 2 sharded database. (Note: due to the application deployed in the shard director VM, you can scale the director VM to a larger shape to improve the performance)
 
     ```
     RO Queries | RW Queries | RO Failed  | RW Failed  | APS 
@@ -339,3 +339,4 @@ This lab assumes you have already completed the following:
 
 12. Press `Ctrl+C` to cancel the demo in both of the terminal.
 
+You may now [proceed to the next lab](#next).

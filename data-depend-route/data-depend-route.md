@@ -568,4 +568,4 @@ A multi-shard query maps to more than one shard and the coordinator might need t
 
    
 
-You may proceed to the next lab.
+You may now [proceed to the next lab](#next).

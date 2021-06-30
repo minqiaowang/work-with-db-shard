@@ -321,7 +321,7 @@ You now have a fully functional Oracle shard database which uses the system mana
 
     
 
-You may proceed to the next lab.
+You may now [proceed to the next lab](#next).
 
 ## Acknowledgements
 * **Author** - Minqiao Wang, DB Product Management, Jan 2021

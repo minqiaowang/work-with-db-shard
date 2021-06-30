@@ -916,4 +916,4 @@ This lab assumes you have already completed the following:
 
    
 
-You may proceed to the next lab.
+You may now [proceed to the next lab](#next).
