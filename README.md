@@ -50,3 +50,46 @@ The command completed successfully
 [oracle@sdbsd0 ~]$ 
 ```
 
+### Terraform Scripts from Maketplace need to be modified to remove the domain name, Files change in the following:
+
+```
+sdb-schema.yaml
+default: "BRING_YOUR_OWN_LICENSE"
+
+variables.tf
+chunk 12
+BRING_YOUR_OWN_LICENSE
+
+optional-variables.auto.tfvars
+chunk = 12
+
+shard-catalog-config.template.ql
+alter system set global_names=false scope=spfile;
+alter system set db_domain='' scope=spfile;
+
+shard-db-convert-params.tf
+echo "alter system set global_names=false scope=spfile;" >> ${local.db_home_path}/convert-params.sql
+echo "alter system set db_domain='' scope=spfile;" >> ${local.db_home_path}/convert-params.sql
+
+shard-db-configure-main.tf
+alter system set global_names=false scope=spfile;
+alter system set db_domain='' scope=spfile;
+
+shard-catalog-configure-main.tf
+alter system set global_names=false scope=spfile;
+alter system set db_domain='' scope=spfile;
+
+shard-director-configure-main.tf
+delete .${oci_database_db_system.catalog_db[0].domain}
+
+add-shard-director.tf
+delete  .${oci_database_db_system.catalog_db[0].domain}
+
+add-shard-director-wo-stdby.tf
+.${oci_database_db_system.catalog_db[0].domain}
+
+add-shard.tf
+delete .${oci_database_db_system.shard_db[count.index].domain}
+.${oci_database_db_system.shard_db[count.index].domain}
+```
+
