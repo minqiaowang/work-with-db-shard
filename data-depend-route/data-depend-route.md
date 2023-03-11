@@ -37,7 +37,7 @@ This lab assumes you have already completed the following:
     ```
 
    
-   
+
 3. For single-shard queries, direct routing to a shard with a given sharding_key.
 
     ```
@@ -68,9 +68,9 @@ This lab assumes you have already completed the following:
     
     SQL> 
     ```
+
    
-   
-   
+
 5. Commit.
 
     ```
@@ -80,7 +80,7 @@ This lab assumes you have already completed the following:
     
     SQL> 
     ```
-   
+
    
 
 5. Check current connected shard database. 
@@ -138,7 +138,7 @@ This lab assumes you have already completed the following:
 7. Exit from the sqlplus.
 
     ```
-    SQL> exit
+    SQL> <copy>exit</copy>
     Disconnected from Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
     Version 19.9.0.0.0
     [oracle@sdbsd0 ~]$ 
@@ -246,7 +246,7 @@ This lab assumes you have already completed the following:
 13. Exit from the sqlplus.
 
     ```
-    SQL> exit
+    SQL> <copy>exit</copy>
     Disconnected from Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
     Version 19.9.0.0.0
     [oracle@sdbsd0 ~]$
@@ -309,7 +309,7 @@ This lab assumes you have already completed the following:
 4. Exit from the sqlplus
 
     ```
-    SQL> exit
+    SQL> <copy>exit</copy>
     Disconnected from Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
     Version 19.9.0.0.0
     [oracle@sdbsd0 ~]$ 
@@ -345,18 +345,18 @@ A multi-shard query maps to more than one shard and the coordinator might need t
 
    
 
-2. Let’s run a multi-shard query which joins sharded and duplicated table (join on non sharding key) to get the fast moving products (qty sold > 10). The output that you will observe will be different (due to data load randomization).
+2. Let’s run a multi-shard query which joins sharded and duplicated table (join on non sharding key) to get the fast moving products (qty sold > 10). The output that you will observe will be different (due to data load randomization). First, explain the SQL excution plan.
 
     ```
-    SQL> set echo on
-    SQL> set linesize 120
-    SQL> column name format a40
-    SQL> explain plan for SELECT name, SUM(qty) qtysold FROM lineitems l, products p WHERE l.productid = p.productid GROUP BY name HAVING sum(qty) > 10 ORDER BY qtysold desc;
+    SQL> <copy>set echo on</copy>
+    SQL> <copy>set linesize 120</copy>
+    SQL> <copy>column name format a40</copy>
+    SQL> <copy>explain plan for SELECT name, SUM(qty) qtysold FROM lineitems l, products p WHERE l.productid = p.productid GROUP BY name HAVING sum(qty) > 10 ORDER BY qtysold desc;</copy>
     
     Explained.
     
-    SQL> set echo off
-    SQL> select * from table(dbms_xplan.display());
+    SQL> <copy>set echo off</copy>
+    SQL> <copy>select * from table(dbms_xplan.display());</copy>
     
     PLAN_TABLE_OUTPUT
     ------------------------------------------------------------------------------------------------------------------------
@@ -394,8 +394,12 @@ A multi-shard query maps to more than one shard and the coordinator might need t
     
     
     26 rows selected.
+    ```
     
-    SQL> SELECT name, SUM(qty) qtysold FROM lineitems l, products p WHERE l.productid = p.productid GROUP BY name HAVING sum(qty) > 10 ORDER BY qtysold desc;
+    Then, run the query.
+    
+    ```
+    SQL> <copy>SELECT name, SUM(qty) qtysold FROM lineitems l, products p WHERE l.productid = p.productid GROUP BY name HAVING sum(qty) > 10 ORDER BY qtysold desc;</copy>
     
     NAME					    QTYSOLD
     ---------------------------------------- ----------
@@ -420,17 +424,17 @@ A multi-shard query maps to more than one shard and the coordinator might need t
 
    
 
-3. Let’s run a multi-shard query which runs an IN subquery to get orders that includes product with `price > 900000`.
+3. Let’s run a multi-shard query which runs an IN subquery to get orders that includes product with `price > 900000`. First, explain the SQL execute plan.
 
     ```
-    SQL> set echo on
-    SQL> column name format a20
-    SQL> explain plan for SELECT COUNT(orderid) FROM orders o WHERE orderid IN (SELECT orderid FROM lineitems l, products p WHERE l.productid = p.productid AND o.custid = l.custid AND p.lastprice > 900000);
+    SQL> <copy>set echo on</copy>
+    SQL> <copy>column name format a20</copy>
+    SQL> <copy>explain plan for SELECT COUNT(orderid) FROM orders o WHERE orderid IN (SELECT orderid FROM lineitems l, products p WHERE l.productid = p.productid AND o.custid = l.custid AND p.lastprice > 900000);</copy>
     
     Explained.
     
-    SQL> set echo off
-    SQL> select * from table(dbms_xplan.display());
+    SQL> <copy>set echo off</copy>
+    SQL> <copy>select * from table(dbms_xplan.display());</copy>
     
     PLAN_TABLE_OUTPUT
     ------------------------------------------------------------------------------------------------------------------------
@@ -460,8 +464,12 @@ A multi-shard query maps to more than one shard and the coordinator might need t
     
     
     21 rows selected.
+    ```
     
-    SQL> SELECT COUNT(orderid) FROM orders o WHERE orderid IN (SELECT orderid FROM lineitems l, products p WHERE l.productid = p.productid AND o.custid = l.custid AND p.lastprice > 900000);
+    Then, run the query.
+    
+    ```
+    SQL> <copy>SELECT COUNT(orderid) FROM orders o WHERE orderid IN (SELECT orderid FROM lineitems l, products p WHERE l.productid = p.productid AND o.custid = l.custid AND p.lastprice > 900000);</copy>
     
     COUNT(ORDERID)
     --------------
@@ -472,22 +480,22 @@ A multi-shard query maps to more than one shard and the coordinator might need t
 
    
 
-4. Let’s run a multi-shard query that calculates customer distribution based on the number of orders placed. Please wait several minutes for the results return.
+4. Let’s run a multi-shard query that calculates customer distribution based on the number of orders placed. Please wait several minutes for the results return. First, explain the SQL execute plan.
 
     ```
-    SQL> set echo off
-    SQL> column name format a40
-    SQL> explain plan for SELECT ordercount, COUNT(*) as custdist
+    SQL> <copy>set echo off</copy>
+    SQL> <copy>column name format a40</copy>
+    SQL> <copy>explain plan for SELECT ordercount, COUNT(*) as custdist
         FROM (SELECT c.custid, COUNT(orderid) ordercount
         	   FROM customers c LEFT OUTER JOIN orders o
         	   ON c.custid = o.custid AND
         	   orderdate BETWEEN sysdate-4 AND sysdate GROUP BY c.custid)
         GROUP BY ordercount
-        ORDER BY custdist desc, ordercount desc;  2    3    4    5    6    7  
+        ORDER BY custdist desc, ordercount desc;</copy>  2    3    4    5    6    7  
     
     Explained.
     
-    SQL> select * from table(dbms_xplan.display());
+    SQL> <copy>select * from table(dbms_xplan.display());</copy>
     
     PLAN_TABLE_OUTPUT
     ------------------------------------------------------------------------------------------------------------------------
@@ -527,14 +535,18 @@ A multi-shard query maps to more than one shard and the coordinator might need t
        - dynamic statistics used: dynamic sampling (level=2)
     
     28 rows selected.
+    ```
     
-    SQL> SELECT ordercount, COUNT(*) as custdist
+    Then, run the query.
+    
+    ```
+    SQL> <copy>SELECT ordercount, COUNT(*) as custdist
         FROM (SELECT c.custid, COUNT(orderid) ordercount
         	   FROM customers c LEFT OUTER JOIN orders o
         	   ON c.custid = o.custid AND
         	   orderdate BETWEEN sysdate-4 AND sysdate GROUP BY c.custid)
         GROUP BY ordercount
-        ORDER BY custdist desc, ordercount desc;  2    3    4    5    6    7  
+        ORDER BY custdist desc, ordercount desc;</copy>  2    3    4    5    6    7  
     
     ORDERCOUNT   CUSTDIST
     ---------- ----------
@@ -560,7 +572,7 @@ A multi-shard query maps to more than one shard and the coordinator might need t
 7. Exit the sqlplus.
 
     ```
-    SQL> exit
+    SQL> <copy>exit</copy>
     Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
     Version 19.9.0.0.0
     [oracle@sdbsd0 ~]$ 
@@ -569,3 +581,7 @@ A multi-shard query maps to more than one shard and the coordinator might need t
    
 
 You may now [proceed to the next lab](#next).
+
+## Acknowledgements
+* **Author** - Minqiao Wang, Jan 2021
+* **Last Updated By/Date** - Minqiao Wang, Mar 2023

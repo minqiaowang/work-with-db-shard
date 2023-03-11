@@ -64,7 +64,7 @@ resource "random_string" "tde_encryption_key_export_passwd" {
 output "sys_user_password" {
   description = "The sys password for logging in to the shard databases and catalogs databases."
   value       = "sd${random_string.sys_pass.result}"
-  #sensitive   = true
+  # sensitive   = true
 }
 
 # output "sdb_admin_pass" {
@@ -72,20 +72,22 @@ output "sys_user_password" {
 #   value       = "sd${random_string.sdb_admin_pass.result}"
 # }
 
+/*
 output "gsm_catalog_user_password" {
   description = "The GSM catalog user password."
   value       = "sd${random_string.gsmcatuser_pass.result}"
-  sensitive   = true
+  # sensitive   = true
 }
 
 output "gsm_user_password" {
   description = "The GSM user password."
   value       = "sd${random_string.gsmuser_pass.result}"
-  sensitive   = true
+  # sensitive   = true
 }
 
 output "gsm_root_user_password" {
   description = "The GSM root user password."
   value       = "sd${random_string.gsmrootuser_pass.result}"
-  sensitive   = true
+  # sensitive   = true
 }
+*/

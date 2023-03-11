@@ -1,0 +1,536 @@
+2023/02/28 05:53:20[TERRAFORM_CONSOLE] [INFO] Getting providers from hashicorp registry and/or custom terraform providers
+2023/02/28 05:53:20[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:20[TERRAFORM_CONSOLE] [INFO] Initializing provider plugins...
+2023/02/28 05:53:20[TERRAFORM_CONSOLE] [INFO] - Checking for available provider plugins...
+2023/02/28 05:53:21[TERRAFORM_CONSOLE] [INFO] - Downloading plugin for provider "random" (hashicorp/random) 3.4.3...
+2023/02/28 05:53:22[TERRAFORM_CONSOLE] [INFO] - Downloading plugin for provider "null" (hashicorp/null) 3.2.1...
+2023/02/28 05:53:22[TERRAFORM_CONSOLE] [INFO] - Downloading plugin for provider "tls" (hashicorp/tls) 4.0.4...
+2023/02/28 05:53:23[TERRAFORM_CONSOLE] [INFO] - Downloading plugin for provider "template" (hashicorp/template) 2.2.0...
+2023/02/28 05:53:23[TERRAFORM_CONSOLE] [INFO] - Downloading plugin for provider "oci" (hashicorp/oci) 4.109.0...
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] The following providers do not have any version constraints in configuration,
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] so the latest version was installed.
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] To prevent automatic upgrades to new major versions that may contain breaking
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] changes, it is recommended to add version = "..." constraints to the
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] corresponding provider blocks in configuration, with the constraint strings
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] suggested below.
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] * provider.null: version = "~> 3.2"
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] * provider.oci: version = "~> 4.109"
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] * provider.random: version = "~> 3.4"
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] * provider.template: version = "~> 2.2"
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] * provider.tls: version = "~> 4.0"
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] Warning: registry.terraform.io: For users on Terraform 0.13 or greater, this provider has moved to oracle/oci. Please update your source in required_providers.
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] Warning: Quoted references are deprecated
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO]   on add-service.tf line 5, in resource "null_resource" "sdb_add_service":
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO]    5:   depends_on = ["null_resource.sdb_shard_tde", "null_resource.sdb_shard_standby_tde", "null_resource.sdb_shard_catalog_tde", "null_resource.sdb_deploy_invoker"]
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] In this context, references are expected literally rather than in quotes.
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] Terraform 0.11 and earlier required quotes, but quoted references are now
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] deprecated and will be removed in a future version of Terraform. Remove the
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] quotes surrounding this reference to silence this warning.
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] (and 118 more similar warnings elsewhere)
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] Warning: Interpolation-only expressions are deprecated
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO]   on add-service.tf line 6, in resource "null_resource" "sdb_add_service":
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO]    6:   count      = "${var.demo_setup == "false" ? 0 : length(var.global_services)}"
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] Terraform 0.11 and earlier required all non-constant expressions to be
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] provided via interpolation syntax, but this pattern is now deprecated. To
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] silence this warning, remove the "${ sequence from the start and the }"
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] sequence from the end of this expression, leaving just the inner expression.
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] Template interpolation syntax is still used to construct strings from
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] expressions when the template includes multiple interpolation sequences or a
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] mixture of literal strings and interpolations. This deprecation applies only
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] to templates that consist entirely of a single interpolation sequence.
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] (and 245 more similar warnings elsewhere)
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] Warning: External references from destroy provisioners are deprecated
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO]   on add-service.tf line 11, in resource "null_resource" "sdb_add_service":
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO]   11:     user        = "${var.os_user}"
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] Destroy-time provisioners and their connection configurations may only
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] reference attributes of the related resource, via 'self', 'count.index', or
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 'each.key'.
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] References to other resources during the destroy phase can cause dependency
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] cycles and interact poorly with create_before_destroy.
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] (and 204 more similar warnings elsewhere)
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] Warning: Quoted keywords are deprecated
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO]   on add-service.tf line 41, in resource "null_resource" "sdb_add_service":
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO]   41:     when = "destroy"
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] In this context, keywords are expected literally rather than in quotes.
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] Terraform 0.11 and earlier required quotes, but quoted keywords are now
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] deprecated and will be removed in a future version of Terraform. Remove the
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] quotes surrounding this keyword to silence this warning.
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] (and 28 more similar warnings elsewhere)
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] Terraform has been successfully initialized!
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] You may now begin working with Terraform. Try running "terraform plan" to see
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] any changes that are required for your infrastructure. All Terraform commands
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] should now work.
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] If you ever set or change modules or backend configuration for Terraform,
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] rerun this command to reinitialize your working directory. If you forget, other
+2023/02/28 05:53:25[TERRAFORM_CONSOLE] [INFO] commands will detect it and remind you to do so if necessary.
+2023/02/28 05:53:28[TERRAFORM_CONSOLE] [INFO] data.template_file.shard_director_env_template: Refreshing state...
+2023/02/28 05:53:28[TERRAFORM_CONSOLE] [INFO] tls_private_key.public_private_key_pair: Refreshing state... [id=bb2c86fc2fb14f96d27f3dd6b791ec5196fc423b]
+2023/02/28 05:53:28[TERRAFORM_CONSOLE] [INFO] data.template_file.shard_director_rsp_template: Refreshing state...
+2023/02/28 05:53:28[TERRAFORM_CONSOLE] [INFO] random_string.sdb_admin_pass: Refreshing state... [id=WU5L5WqSZxI__9B86iRK4A]
+2023/02/28 05:53:28[TERRAFORM_CONSOLE] [INFO] random_string.gsmuser_pass: Refreshing state... [id=7A0_l1J9_Ir]
+2023/02/28 05:53:28[TERRAFORM_CONSOLE] [INFO] random_string.sudo_pass: Refreshing state... [id=2IKX_E_3fOw7lN8_7k]
+2023/02/28 05:53:28[TERRAFORM_CONSOLE] [INFO] random_string.gsmrootuser_pass: Refreshing state... [id=4W0SOG5H_4jKJ_c91m]
+2023/02/28 05:53:28[TERRAFORM_CONSOLE] [INFO] random_string.tde_encryption_key_export_passwd: Refreshing state... [id=nrqkLF]
+2023/02/28 05:53:28[TERRAFORM_CONSOLE] [INFO] random_string.sys_pass: Refreshing state... [id=vT_ZhPc7Y830_sQbD]
+2023/02/28 05:53:28[TERRAFORM_CONSOLE] [INFO] random_string.gsmcatuser_pass: Refreshing state... [id=B_2n5P6I01p8S0ioucBcE_]
+2023/02/28 05:53:28[TERRAFORM_CONSOLE] [INFO] data.template_file.shard_director_worker_template: Refreshing state...
+2023/02/28 05:53:29[TERRAFORM_CONSOLE] [INFO] oci_core_app_catalog_listing_resource_version_agreement.mp_image_agreement: Refreshing state... [id=2023-02-28 02:58:48.968 +0000 UTC]
+2023/02/28 05:53:29[TERRAFORM_CONSOLE] [INFO] oci_core_vcn.vcn[0]: Refreshing state... [id=ocid1.vcn.oc1.ap-singapore-1.amaaaaaaobogfhqamtljxvwa4lniykdqn4wxnn5kuh4ewciuwzvukxahbqmq]
+2023/02/28 05:53:29[TERRAFORM_CONSOLE] [INFO] data.oci_identity_availability_domains.ADs: Refreshing state...
+2023/02/28 05:53:29[TERRAFORM_CONSOLE] [INFO] data.oci_core_app_catalog_subscriptions.mp_image_subscription: Refreshing state...
+2023/02/28 05:53:29[TERRAFORM_CONSOLE] [INFO] oci_core_app_catalog_subscription.mp_image_subscription: Refreshing state... [id=compartmentId/ocid1.compartment.oc1..aaaaaaaahnn5lmnbuqbbyddbtpd5ixrvi5kuibzbeksokn2nm6ar6zcc5d7q/listingId/ocid1.appcataloglisting.oc1..aaaaaaaarcfzjqmzha56sse6ctb7uryquew6vzjdrdxklcvigh6perp5dtlq/listingResourceVersion/1.0-042220200455]
+2023/02/28 05:53:29[TERRAFORM_CONSOLE] [INFO] data.oci_core_vcn.vcn: Refreshing state...
+2023/02/28 05:53:29[TERRAFORM_CONSOLE] [INFO] oci_core_internet_gateway.igw[0]: Refreshing state... [id=ocid1.internetgateway.oc1.ap-singapore-1.aaaaaaaavtkbckhp5wdok6twfjboqcmqaphnj5qii56lhjxuidvel6g7hxcq]
+2023/02/28 05:53:29[TERRAFORM_CONSOLE] [INFO] oci_core_security_list.security_list[0]: Refreshing state... [id=ocid1.securitylist.oc1.ap-singapore-1.aaaaaaaa5ht2qafvn3uzcfa4aqf2xyznkrgkuq6lwsatkfsnpdrt6dv7pnua]
+2023/02/28 05:53:29[TERRAFORM_CONSOLE] [INFO] data.oci_identity_fault_domains.FDs[0]: Refreshing state...
+2023/02/28 05:53:29[TERRAFORM_CONSOLE] [INFO] oci_core_route_table.route_table[0]: Refreshing state... [id=ocid1.routetable.oc1.ap-singapore-1.aaaaaaaaorcaar63yeldjoduj3kqa6ioueqghcm6gpkrqiaklf3sj7dn2uda]
+2023/02/28 05:53:29[TERRAFORM_CONSOLE] [INFO] oci_core_subnet.subnet[0]: Refreshing state... [id=ocid1.subnet.oc1.ap-singapore-1.aaaaaaaarm4kjpvlqx7ccwworxtrug6tbjxgutvkau3bmshaqpihfslgs5la]
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] data.oci_core_subnet.shardgroup_subnet: Refreshing state...
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Refreshing state... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzwsljrobogfhqafr2npd4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda]
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] oci_core_instance.gsm_vm[0]: Refreshing state... [id=ocid1.instance.oc1.ap-singapore-1.anzwsljrobogfhqcqv4slvxree25c7bgdkfzwpmz5dyatujhum66vdzund5a]
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Refreshing state... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzwsljrobogfhqadqtao7gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq]
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Refreshing state... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzwsljrobogfhqax7r5abo43dz3q3wlob2rlliv6zz5jcq3epuofypftalq]
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] data.oci_database_db_homes.shard_primary_db_homes[0]: Refreshing state...
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] data.oci_database_db_homes.shard_primary_db_homes[1]: Refreshing state...
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] data.oci_database_db_homes.primary_db_homes[0]: Refreshing state...
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] data.oci_database_db_nodes.catalog_db_nodes[0]: Refreshing state...
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] data.oci_database_db_nodes.shard_db_nodes[0]: Refreshing state...
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] data.oci_database_db_nodes.shard_db_nodes[1]: Refreshing state...
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_director_cloud_init[0]: Refreshing state... [id=8026292417762779465]
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_director_install_main[0]: Refreshing state... [id=559181891175503980]
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] data.oci_database_databases.primary_databases[0]: Refreshing state...
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] data.oci_database_db_node.catalog_db_node_details[0]: Refreshing state...
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] data.oci_database_databases.shard_primary_databases[0]: Refreshing state...
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] data.oci_database_databases.shard_primary_databases[1]: Refreshing state...
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] data.oci_database_db_node.shard_db_node_details[1]: Refreshing state...
+2023/02/28 05:53:30[TERRAFORM_CONSOLE] [INFO] data.oci_database_db_node.shard_db_node_details[0]: Refreshing state...
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] data.oci_core_vnic.catalog_db_node_vnic[0]: Refreshing state...
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] data.oci_core_vnic.shard_db_node_vnic[0]: Refreshing state...
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] data.oci_core_vnic.shard_db_node_vnic[1]: Refreshing state...
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] data.oci_database_database.catalog_database[0]: Refreshing state...
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] data.template_file.shard_catalog_config_template: Refreshing state...
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_catalog_cloud_init[0]: Refreshing state... [id=3071309135898361117]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] data.oci_database_database.shard_database[0]: Refreshing state...
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] data.oci_database_database.shard_database[1]: Refreshing state...
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_cloud_init[1]: Refreshing state... [id=8444117457623407946]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_cloud_init[0]: Refreshing state... [id=3205194341531733987]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_env_configure[0]: Refreshing state... [id=5489223060629518400]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_env_configure[1]: Refreshing state... [id=1502709718280651402]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_catalog_configure[0]: Refreshing state... [id=4875741634745160874]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] data.template_file.system_sharding_schema_setup_template: Refreshing state...
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_db_configure[0]: Refreshing state... [id=9162279890512452425]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_db_configure[1]: Refreshing state... [id=1304765013374561905]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_director_configure: Refreshing state... [id=1705484885916223530]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_add_shard_director_wo_stdby[0]: Refreshing state... [id=2269570557308006033]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_relay_tns_config[1]: Refreshing state... [id=4175735224849358300]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_relay_tns_config[0]: Refreshing state... [id=3134161508401170617]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_add_shard_group[0]: Refreshing state... [id=8062536283568212017]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_data_move_consolidator_config: Refreshing state... [id=8506174789978519207]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_director_aggregate_tns_config: Refreshing state... [id=5187229756256339883]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_add_shard[1]: Refreshing state... [id=4620476645905874443]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_director_tns_ingest[0]: Refreshing state... [id=718729138273404652]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_add_shard[0]: Refreshing state... [id=3351977323313803945]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_tns_ingest[1]: Refreshing state... [id=5259148698895159045]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_tns_ingest[0]: Refreshing state... [id=4221838479956724074]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_catalog_tns_ingest[0]: Refreshing state... [id=4537509291091402198]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_deploy_invoker: Refreshing state... [id=6270836012114980270]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_catalog_shard_chunks[0]: Refreshing state... [id=3881611530971058012]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_catalog_shard_chunks[1]: Refreshing state... [id=2977875190221619507]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_catalog_tde[0]: Refreshing state... [id=5579296623717084269]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_catalog_tde_master_shard[1]: Refreshing state... [id=4526465192052434286]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_catalog_tde_master_shard[0]: Refreshing state... [id=4637393452873650845]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_tde[0]: Refreshing state... [id=8040029584346345497]
+2023/02/28 05:53:31[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_tde[1]: Refreshing state... [id=3668653459410425131]
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_deploy_invoker: Destroying... [id=6270836012114980270]
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_deploy_invoker: Provisioning with 'remote-exec'...
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_deploy_invoker (remote-exec): Connecting to remote host via SSH...
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_deploy_invoker (remote-exec):   Host: 152.69.220.3
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_deploy_invoker (remote-exec):   User: oracle
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_deploy_invoker (remote-exec):   Password: false
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_deploy_invoker (remote-exec):   Private key: true
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_deploy_invoker (remote-exec):   Certificate: false
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_deploy_invoker (remote-exec):   SSH Agent: false
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_deploy_invoker (remote-exec):   Checking Host Key: false
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Creating...
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzwsljrobogfhqafr2npd4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda]
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzwsljrobogfhqadqtao7gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq]
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzwsljrobogfhqax7r5abo43dz3q3wlob2rlliv6zz5jcq3epuofypftalq]
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_deploy_invoker (remote-exec): Connected!
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_deploy_invoker: Destruction complete after 1s
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_tns_ingest[1]: Destroying... [id=5259148698895159045]
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_data_move_consolidator_config: Destroying... [id=8506174789978519207]
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_tns_ingest[1]: Destruction complete after 0s
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_data_move_consolidator_config: Provisioning with 'file'...
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_catalog_tns_ingest[0]: Destroying... [id=4537509291091402198]
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_tns_ingest[0]: Destroying... [id=4221838479956724074]
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_director_tns_ingest[0]: Destroying... [id=718729138273404652]
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_catalog_tns_ingest[0]: Destruction complete after 0s
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_tns_ingest[0]: Destruction complete after 0s
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_director_tns_ingest[0]: Destruction complete after 0s
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_director_aggregate_tns_config: Destroying... [id=5187229756256339883]
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_director_aggregate_tns_config: Destruction complete after 0s
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_relay_tns_config[1]: Destroying... [id=4175735224849358300]
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_relay_tns_config[0]: Destroying... [id=3134161508401170617]
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_relay_tns_config[1]: Destruction complete after 0s
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_relay_tns_config[0]: Destruction complete after 0s
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_data_move_consolidator_config: Provisioning with 'remote-exec'...
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_data_move_consolidator_config (remote-exec): Connecting to remote host via SSH...
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_data_move_consolidator_config (remote-exec):   Host: 152.69.220.3
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_data_move_consolidator_config (remote-exec):   User: oracle
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_data_move_consolidator_config (remote-exec):   Password: false
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_data_move_consolidator_config (remote-exec):   Private key: true
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_data_move_consolidator_config (remote-exec):   Certificate: false
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_data_move_consolidator_config (remote-exec):   SSH Agent: false
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_data_move_consolidator_config (remote-exec):   Checking Host Key: false
+2023/02/28 05:53:34[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_data_move_consolidator_config (remote-exec): Connected!
+2023/02/28 05:53:35[TERRAFORM_CONSOLE] [INFO] null_resource.sdb_shard_data_move_consolidator_config: Destruction complete after 1s
+2023/02/28 05:53:44[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [10s elapsed]
+2023/02/28 05:53:44[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 10s elapsed]
+2023/02/28 05:53:44[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 10s elapsed]
+2023/02/28 05:53:44[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 10s elapsed]
+2023/02/28 05:53:54[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [20s elapsed]
+2023/02/28 05:53:54[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 20s elapsed]
+2023/02/28 05:53:54[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 20s elapsed]
+2023/02/28 05:53:54[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 20s elapsed]
+2023/02/28 05:54:04[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [30s elapsed]
+2023/02/28 05:54:04[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 30s elapsed]
+2023/02/28 05:54:04[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 30s elapsed]
+2023/02/28 05:54:04[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 30s elapsed]
+2023/02/28 05:54:13[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [40s elapsed]
+2023/02/28 05:54:13[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 40s elapsed]
+2023/02/28 05:54:13[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 40s elapsed]
+2023/02/28 05:54:13[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 40s elapsed]
+2023/02/28 05:54:23[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [50s elapsed]
+2023/02/28 05:54:23[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 50s elapsed]
+2023/02/28 05:54:23[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 50s elapsed]
+2023/02/28 05:54:23[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 50s elapsed]
+2023/02/28 05:54:33[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [1m0s elapsed]
+2023/02/28 05:54:33[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 1m0s elapsed]
+2023/02/28 05:54:33[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 1m0s elapsed]
+2023/02/28 05:54:33[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 1m0s elapsed]
+2023/02/28 05:54:43[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [1m10s elapsed]
+2023/02/28 05:54:43[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 1m10s elapsed]
+2023/02/28 05:54:43[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 1m10s elapsed]
+2023/02/28 05:54:43[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 1m10s elapsed]
+2023/02/28 05:54:53[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [1m20s elapsed]
+2023/02/28 05:54:53[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 1m20s elapsed]
+2023/02/28 05:54:53[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 1m20s elapsed]
+2023/02/28 05:54:53[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 1m20s elapsed]
+2023/02/28 05:55:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [1m32s elapsed]
+2023/02/28 05:55:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 1m32s elapsed]
+2023/02/28 05:55:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 1m32s elapsed]
+2023/02/28 05:55:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 1m32s elapsed]
+2023/02/28 05:55:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [1m42s elapsed]
+2023/02/28 05:55:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 1m42s elapsed]
+2023/02/28 05:55:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 1m42s elapsed]
+2023/02/28 05:55:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 1m42s elapsed]
+2023/02/28 05:55:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [1m52s elapsed]
+2023/02/28 05:55:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 1m52s elapsed]
+2023/02/28 05:55:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 1m52s elapsed]
+2023/02/28 05:55:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 1m52s elapsed]
+2023/02/28 05:55:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [2m2s elapsed]
+2023/02/28 05:55:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 2m2s elapsed]
+2023/02/28 05:55:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 2m2s elapsed]
+2023/02/28 05:55:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 2m2s elapsed]
+2023/02/28 05:55:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [2m12s elapsed]
+2023/02/28 05:55:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 2m12s elapsed]
+2023/02/28 05:55:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 2m12s elapsed]
+2023/02/28 05:55:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 2m12s elapsed]
+2023/02/28 05:55:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [2m22s elapsed]
+2023/02/28 05:55:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 2m22s elapsed]
+2023/02/28 05:55:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 2m22s elapsed]
+2023/02/28 05:55:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 2m22s elapsed]
+2023/02/28 05:56:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [2m32s elapsed]
+2023/02/28 05:56:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 2m32s elapsed]
+2023/02/28 05:56:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 2m32s elapsed]
+2023/02/28 05:56:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 2m32s elapsed]
+2023/02/28 05:56:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [2m42s elapsed]
+2023/02/28 05:56:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 2m42s elapsed]
+2023/02/28 05:56:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 2m42s elapsed]
+2023/02/28 05:56:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 2m42s elapsed]
+2023/02/28 05:56:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [2m52s elapsed]
+2023/02/28 05:56:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 2m52s elapsed]
+2023/02/28 05:56:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 2m52s elapsed]
+2023/02/28 05:56:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 2m52s elapsed]
+2023/02/28 05:56:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [3m2s elapsed]
+2023/02/28 05:56:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 3m2s elapsed]
+2023/02/28 05:56:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 3m2s elapsed]
+2023/02/28 05:56:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 3m2s elapsed]
+2023/02/28 05:56:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [3m12s elapsed]
+2023/02/28 05:56:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 3m12s elapsed]
+2023/02/28 05:56:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 3m12s elapsed]
+2023/02/28 05:56:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 3m12s elapsed]
+2023/02/28 05:56:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [3m22s elapsed]
+2023/02/28 05:56:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 3m22s elapsed]
+2023/02/28 05:56:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 3m22s elapsed]
+2023/02/28 05:56:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 3m22s elapsed]
+2023/02/28 05:57:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [3m32s elapsed]
+2023/02/28 05:57:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 3m32s elapsed]
+2023/02/28 05:57:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 3m32s elapsed]
+2023/02/28 05:57:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 3m32s elapsed]
+2023/02/28 05:57:14[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [3m42s elapsed]
+2023/02/28 05:57:14[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 3m42s elapsed]
+2023/02/28 05:57:14[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 3m42s elapsed]
+2023/02/28 05:57:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 3m42s elapsed]
+2023/02/28 05:57:24[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [3m52s elapsed]
+2023/02/28 05:57:24[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 3m52s elapsed]
+2023/02/28 05:57:24[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 3m52s elapsed]
+2023/02/28 05:57:24[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 3m52s elapsed]
+2023/02/28 05:57:34[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [4m2s elapsed]
+2023/02/28 05:57:34[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 4m2s elapsed]
+2023/02/28 05:57:34[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 4m2s elapsed]
+2023/02/28 05:57:34[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 4m2s elapsed]
+2023/02/28 05:57:44[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [4m12s elapsed]
+2023/02/28 05:57:44[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[1]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...gq7jdw6gsbns2i7yaa2vgf7bb2mlcv3ykzhitq, 4m12s elapsed]
+2023/02/28 05:57:44[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 4m12s elapsed]
+2023/02/28 05:57:44[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 4m12s elapsed]
+2023/02/28 05:57:54[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [4m22s elapsed]
+2023/02/28 05:57:54[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 4m22s elapsed]
+2023/02/28 05:57:54[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 4m22s elapsed]
+2023/02/28 05:58:04[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [4m32s elapsed]
+2023/02/28 05:58:04[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.catalog_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...4n67oxuae4h7zmu3nvlserecgqqc6rzbrlpqda, 4m32s elapsed]
+2023/02/28 05:58:04[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 4m32s elapsed]
+2023/02/28 05:58:14[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [4m42s elapsed]
+2023/02/28 05:58:14[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 4m42s elapsed]
+2023/02/28 05:58:24[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [4m52s elapsed]
+2023/02/28 05:58:24[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 4m52s elapsed]
+2023/02/28 05:58:34[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [5m2s elapsed]
+2023/02/28 05:58:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[0]: Still modifying... [id=ocid1.dbsystem.oc1.ap-singapore-1.anzws...o43dz3q3wlob2rlliv6zz5jcq3epuofypftalq, 5m2s elapsed]
+2023/02/28 05:58:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [5m12s elapsed]
+2023/02/28 05:58:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [5m22s elapsed]
+2023/02/28 05:59:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [5m32s elapsed]
+2023/02/28 05:59:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [5m42s elapsed]
+2023/02/28 05:59:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [5m52s elapsed]
+2023/02/28 05:59:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [6m2s elapsed]
+2023/02/28 05:59:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [6m12s elapsed]
+2023/02/28 05:59:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [6m22s elapsed]
+2023/02/28 06:00:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [6m32s elapsed]
+2023/02/28 06:00:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [6m42s elapsed]
+2023/02/28 06:00:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [6m52s elapsed]
+2023/02/28 06:00:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [7m2s elapsed]
+2023/02/28 06:00:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [7m12s elapsed]
+2023/02/28 06:00:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [7m22s elapsed]
+2023/02/28 06:01:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [7m32s elapsed]
+2023/02/28 06:01:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [7m42s elapsed]
+2023/02/28 06:01:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [7m52s elapsed]
+2023/02/28 06:01:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [8m2s elapsed]
+2023/02/28 06:01:44[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [8m12s elapsed]
+2023/02/28 06:01:54[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [8m22s elapsed]
+2023/02/28 06:02:04[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [8m32s elapsed]
+2023/02/28 06:02:14[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [8m42s elapsed]
+2023/02/28 06:02:24[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [8m52s elapsed]
+2023/02/28 06:02:34[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [9m2s elapsed]
+2023/02/28 06:02:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [9m12s elapsed]
+2023/02/28 06:02:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [9m22s elapsed]
+2023/02/28 06:03:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [9m32s elapsed]
+2023/02/28 06:03:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [9m42s elapsed]
+2023/02/28 06:03:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [9m52s elapsed]
+2023/02/28 06:03:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [10m2s elapsed]
+2023/02/28 06:03:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [10m12s elapsed]
+2023/02/28 06:03:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [10m22s elapsed]
+2023/02/28 06:04:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [10m32s elapsed]
+2023/02/28 06:04:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [10m42s elapsed]
+2023/02/28 06:04:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [10m52s elapsed]
+2023/02/28 06:04:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [11m2s elapsed]
+2023/02/28 06:04:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [11m12s elapsed]
+2023/02/28 06:04:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [11m22s elapsed]
+2023/02/28 06:05:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [11m32s elapsed]
+2023/02/28 06:05:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [11m42s elapsed]
+2023/02/28 06:05:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [11m52s elapsed]
+2023/02/28 06:05:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [12m2s elapsed]
+2023/02/28 06:05:44[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [12m12s elapsed]
+2023/02/28 06:05:54[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [12m22s elapsed]
+2023/02/28 06:06:04[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [12m32s elapsed]
+2023/02/28 06:06:14[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [12m42s elapsed]
+2023/02/28 06:06:24[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [12m52s elapsed]
+2023/02/28 06:06:34[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [13m2s elapsed]
+2023/02/28 06:06:44[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [13m12s elapsed]
+2023/02/28 06:06:54[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [13m22s elapsed]
+2023/02/28 06:07:04[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [13m32s elapsed]
+2023/02/28 06:07:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [13m42s elapsed]
+2023/02/28 06:07:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [13m52s elapsed]
+2023/02/28 06:07:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [14m2s elapsed]
+2023/02/28 06:07:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [14m12s elapsed]
+2023/02/28 06:07:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [14m22s elapsed]
+2023/02/28 06:08:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [14m32s elapsed]
+2023/02/28 06:08:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [14m42s elapsed]
+2023/02/28 06:08:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [14m52s elapsed]
+2023/02/28 06:08:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [15m2s elapsed]
+2023/02/28 06:08:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [15m12s elapsed]
+2023/02/28 06:08:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [15m22s elapsed]
+2023/02/28 06:09:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [15m32s elapsed]
+2023/02/28 06:09:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [15m42s elapsed]
+2023/02/28 06:09:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [15m52s elapsed]
+2023/02/28 06:09:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [16m2s elapsed]
+2023/02/28 06:09:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [16m12s elapsed]
+2023/02/28 06:09:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [16m22s elapsed]
+2023/02/28 06:10:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [16m32s elapsed]
+2023/02/28 06:10:14[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [16m42s elapsed]
+2023/02/28 06:10:24[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [16m52s elapsed]
+2023/02/28 06:10:34[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [17m2s elapsed]
+2023/02/28 06:10:44[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [17m12s elapsed]
+2023/02/28 06:10:54[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [17m22s elapsed]
+2023/02/28 06:11:04[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [17m32s elapsed]
+2023/02/28 06:11:14[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [17m42s elapsed]
+2023/02/28 06:11:24[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [17m52s elapsed]
+2023/02/28 06:11:34[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [18m2s elapsed]
+2023/02/28 06:11:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [18m12s elapsed]
+2023/02/28 06:11:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [18m22s elapsed]
+2023/02/28 06:12:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [18m32s elapsed]
+2023/02/28 06:12:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [18m42s elapsed]
+2023/02/28 06:12:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [18m52s elapsed]
+2023/02/28 06:12:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [19m2s elapsed]
+2023/02/28 06:12:45[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [19m12s elapsed]
+2023/02/28 06:12:55[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [19m22s elapsed]
+2023/02/28 06:13:05[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [19m32s elapsed]
+2023/02/28 06:13:15[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [19m42s elapsed]
+2023/02/28 06:13:25[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [19m52s elapsed]
+2023/02/28 06:13:35[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Still creating... [20m2s elapsed]
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] oci_database_db_system.shard_db[2]: Creation complete after 20m5s [id=ocid1.dbsystem.oc1.ap-singapore-1.anzwsljrobogfhqatqlex7byoui6mjtqc754nw6gassxvuwyoslyqyhfkinq]
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Warning: Quoted references are deprecated
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]   on add-service.tf line 5, in resource "null_resource" "sdb_add_service":
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]    5:   depends_on = ["null_resource.sdb_shard_tde", "null_resource.sdb_shard_standby_tde", "null_resource.sdb_shard_catalog_tde", "null_resource.sdb_deploy_invoker"]
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] In this context, references are expected literally rather than in quotes.
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Terraform 0.11 and earlier required quotes, but quoted references are now
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] deprecated and will be removed in a future version of Terraform. Remove the
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] quotes surrounding this reference to silence this warning.
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] (and 118 more similar warnings elsewhere)
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Warning: Interpolation-only expressions are deprecated
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]   on add-service.tf line 6, in resource "null_resource" "sdb_add_service":
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]    6:   count      = "${var.demo_setup == "false" ? 0 : length(var.global_services)}"
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Terraform 0.11 and earlier required all non-constant expressions to be
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] provided via interpolation syntax, but this pattern is now deprecated. To
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] silence this warning, remove the "${ sequence from the start and the }"
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] sequence from the end of this expression, leaving just the inner expression.
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Template interpolation syntax is still used to construct strings from
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] expressions when the template includes multiple interpolation sequences or a
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] mixture of literal strings and interpolations. This deprecation applies only
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] to templates that consist entirely of a single interpolation sequence.
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] (and 245 more similar warnings elsewhere)
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Warning: External references from destroy provisioners are deprecated
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]   on add-service.tf line 11, in resource "null_resource" "sdb_add_service":
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]   11:     user        = "${var.os_user}"
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Destroy-time provisioners and their connection configurations may only
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] reference attributes of the related resource, via 'self', 'count.index', or
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 'each.key'.
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] References to other resources during the destroy phase can cause dependency
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] cycles and interact poorly with create_before_destroy.
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] (and 204 more similar warnings elsewhere)
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Warning: Quoted keywords are deprecated
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]   on add-service.tf line 41, in resource "null_resource" "sdb_add_service":
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]   41:     when = "destroy"
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] In this context, keywords are expected literally rather than in quotes.
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Terraform 0.11 and earlier required quotes, but quoted keywords are now
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] deprecated and will be removed in a future version of Terraform. Remove the
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] quotes surrounding this keyword to silence this warning.
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] (and 28 more similar warnings elsewhere)
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Warning: Attribute Deprecated
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]   on wallet.tf line 61, in resource "random_string" "tde_encryption_key_export_passwd":
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]   61:   number  = false
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] **NOTE**: This is deprecated, use `numeric` instead.
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Error: 500-InternalError, Internal error occurred
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Suggestion: The service for this resource encountered an error. Please contact support for help with service: Database Db System
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Documentation: https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/database_db_system 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] API Reference: https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/UpdateDatabase 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Request Target: PUT https://database.ap-singapore-1.oraclecloud.com/20160918/databases/ocid1.database.oc1.ap-singapore-1.anzwsljrobogfhqadeq7zhzjmf2zee4tleqgul37q6vqenvrbnjppjija3va 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Provider version: 4.108.1, released on 2023-02-21.  
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Service: Database Db System 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Operation Name: UpdateDatabase 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] OPC request ID: 8e9ee49a3acf3b2d8ce0f30834d86af0/3CE94558D08BD857D7EAA060BE8217C8/C0B7AC1186C194010703066DC0AAE1E0 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]   on catalog-db.tf line 4, in resource "oci_database_db_system" "catalog_db":
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]    4: resource "oci_database_db_system" "catalog_db" {
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Error: 500-InternalError, Internal error occurred
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Suggestion: The service for this resource encountered an error. Please contact support for help with service: Database Db System
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Documentation: https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/database_db_system 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] API Reference: https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/UpdateDatabase 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Request Target: PUT https://database.ap-singapore-1.oraclecloud.com/20160918/databases/ocid1.database.oc1.ap-singapore-1.anzwsljrobogfhqatrmjiy2k2v5kryri4pgxqvxatdu5ycpdfld7n2tsebrq 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Provider version: 4.108.1, released on 2023-02-21.  
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Service: Database Db System 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Operation Name: UpdateDatabase 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] OPC request ID: 4202265a95c23b4051005685a90c40fc/260BBAFCC9672DBC59FCAFF1AE4B908C/E4479FC792B6C507CF79A55BE6859E59 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]   on shard-db.tf line 4, in resource "oci_database_db_system" "shard_db":
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]    4: resource "oci_database_db_system" "shard_db" {
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Error: 500-InternalError, Internal error occurred
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Suggestion: The service for this resource encountered an error. Please contact support for help with service: Database Db System
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Documentation: https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/database_db_system 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] API Reference: https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/UpdateDatabase 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Request Target: PUT https://database.ap-singapore-1.oraclecloud.com/20160918/databases/ocid1.database.oc1.ap-singapore-1.anzwsljrobogfhqa7zagbvxy7sxxrwcq62hb7htfuqtdvgtwke6yt5nj4pqa 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Provider version: 4.108.1, released on 2023-02-21.  
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Service: Database Db System 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] Operation Name: UpdateDatabase 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] OPC request ID: f5e0dcc12895fe5dab7cfa6d46fdb2c5/D8518990A51DC4763891942CD09B1496/B7E5E04E7F2B1FA1AF72B55A5BFC7B1D 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]   on shard-db.tf line 4, in resource "oci_database_db_system" "shard_db":
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO]    4: resource "oci_database_db_system" "shard_db" {
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 
+2023/02/28 06:13:38[TERRAFORM_CONSOLE] [INFO] 

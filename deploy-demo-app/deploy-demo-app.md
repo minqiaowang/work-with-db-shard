@@ -20,24 +20,30 @@ This lab assumes you have already completed the following:
 
 ## **STEP 1:** Setup and Configure the Sharding Demo Application
 
-1. Login to the shard director host, switch to oracle user.
+1. Login to the shard director host.
 
     ```
     $ ssh -i labkey opc@xxx.xxx.xxx.xxx
     Last login: Sat Jan 23 06:23:18 2021 from 59.66.120.23
     -bash: warning: setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory
     
-    [opc@sdbsd0 ~]$ sudo su - oracle
+    [opc@sdbsd0 ~]$
+    ```
+    
+    Switch to oracle user.
+    
+    ```
+    [opc@sdbsd0 ~]$ <copy>sudo su - oracle</copy>
     Last login: Sat Jan 23 06:23:20 GMT 2021 on pts/0
     [oracle@sdbsd0 ~]$ 
     ```
 
    
 
-2. Download the `sdb_demo_app.zip`  file. 
+2. Download the `sdb-demo-app-qs.zip`  file. 
 
     ```
-    oracle@cata ~]$ <copy>wget https://github.com/minqiaowang/work-with-db-shard/raw/main/deploy-demo-app/sdb_demo_app.zip</copy>
+    oracle@cata ~]$ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/sdb-demo-app-qs.zip</copy>
     ```
 
    
@@ -45,8 +51,8 @@ This lab assumes you have already completed the following:
 3. Unzip the file. This will create `sdb_demo_app` directory under the `/home/oracle`
 
     ```
-    [oracle@sdbsd0 ~]$ <copy>unzip sdb_demo_app.zip</copy> 
-    Archive:  sdb_demo_app.zip
+    [oracle@sdbsd0 ~]$ <copy>unzip sdb-demo-app-qs.zip</copy> 
+    Archive:  sdb-demo-app-qs.zip
        creating: sdb_demo_app/
       inflating: sdb_demo_app/license.inc  
        creating: sdb_demo_app/src/
@@ -143,13 +149,13 @@ This lab assumes you have already completed the following:
       inflating: sdb_demo_app/sql/global_views.header.sql  
     [oracle@sdbsd0 ~]$ 
     ```
+
    
-   
-   
+
 4. Change to the `sdb_demo_app/sql` directory.
 
     ```
-    [oracle@sdbsd0 ~]$ <copy>cd ~/sdb_demo_app/sql</copy>
+    [oracle@sdbsd0 ~]$ <copy>cd ./sdb_demo_app/sql</copy>
     [oracle@sdbsd0 sql]$
     ```
 
@@ -194,24 +200,24 @@ This lab assumes you have already completed the following:
     exec dbms_global_views.create_any_view('SAMPLE_ORDERS', 'APP_SCHEMA.SAMPLE_ORDERS', 'GLOBAL_SAMPLE_ORDERS', 0, 1);
     [oracle@sdbsd0 sql]$ 
     ```
-   
+
    
 
 6. Using SQLPLUS to run the script.
 
     ```
-    [oracle@sdbsd0 sql]$ sqlplus /nolog
+    [oracle@sdbsd0 sql]$ <copy>sqlplus /nolog</copy>
     
     SQL*Plus: Release 19.0.0.0.0 - Production on Sat Jan 23 07:41:39 2021
     Version 19.3.0.0.0
     
     Copyright (c) 1982, 2019, Oracle.  All rights reserved.
     
-    SQL> @demo_app_ext.sql
+    SQL> <copy>@demo_app_ext.sql</copy>
     ```
+
    
-   
-   
+
 7. The result likes the following.
 
     ```
@@ -339,11 +345,17 @@ This lab assumes you have already completed the following:
 8. Exit the sqlplus. Change directory to the `sdb_demo_app`.
 
     ```
-    SQL> exit
+    SQL> <copy>exit</copy>
     Disconnected from Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
     Version 19.9.0.0.0
     
-    [oracle@sdbsd0 sql]$ cd ~/sdb_demo_app
+    [oracle@sdbsd0 sql]$ 
+    ```
+    
+    
+    
+    ```
+    [oracle@sdbsd0 sql]$ <copy>cd ~/sdb_demo_app</copy>
     [oracle@sdbsd0 sdb_demo_app]$
     ```
 
@@ -405,9 +417,9 @@ This lab assumes you have already completed the following:
           29798         4795            0            0          952
           32092         5180            0            0          786
     ```
+
    
-   
-   
+
 3. Wait several minutes, remember the APS (Transcation per Second).
 
     ```
@@ -433,17 +445,29 @@ This lab assumes you have already completed the following:
 
    
 
-4. Open another terminal, connect to the shard director host, switch to oracle user. Change the directory to `sdb_demo_app`.
+4. Open another terminal, connect to the shard director host,.
 
     ```
     $ ssh -i labkey opc@xxx.xxx.xxx.xxx
     Last login: Sat Jan 23 07:27:57 2021 from 59.66.120.23
     -bash: warning: setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory
     
-    [opc@sdbsd0 ~]$ sudo su - oracle
+    [opc@sdbsd0 ~]$
+    ```
+    
+    Switch to oracle user.
+    
+    ```
+    [opc@sdbsd0 ~]$ <copy>sudo su - oracle</copy>
     Last login: Sat Jan 23 07:29:32 GMT 2021 on pts/0
     
-    [oracle@sdbsd0 ~]$ cd sdb_demo_app
+    [oracle@sdbsd0 ~]$
+    ```
+    
+     Change the directory to `sdb_demo_app`.
+    
+    ```
+    [oracle@sdbsd0 ~]$ <copy>cd sdb_demo_app</copy>
     [oracle@sdbsd0 sdb_demo_app]$ 
     ```
 
@@ -474,13 +498,13 @@ This lab assumes you have already completed the following:
 
 6. From your laptop, launch a browser and use the URL: `http://xxx.xxx.xxx.xxx:8081`. Using the public ip address of the shard director host and the port number is 8081.
 
-    ![image-20210123155946840](images/image-20210123155946840.png)
+    ![Demo Page](images/image-demopage.png)
 
    
 
 7. Scroll down the screen, you can see the Last inserted orders:
 
-    ![image-20210123160029874](images/image-20210123160029874.png)
+    ![Scroll Down Page](images/image-scrolldownpage.png)
 
    
 
@@ -489,3 +513,7 @@ This lab assumes you have already completed the following:
     
 
 You may now [proceed to the next lab](#next).
+
+## Acknowledgements
+* **Author** - Minqiao Wang, Jan 2021
+* **Last Updated By/Date** - Minqiao Wang, Mar 2023

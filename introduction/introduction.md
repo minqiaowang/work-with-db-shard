@@ -41,7 +41,6 @@ In order to do this workshop, you need
 
 ## Acknowledgements
 
-* **Author** - Minqiao Wang, DB Product Management, Jan 2021
-* **Contributors** -  
-* **Last Updated By/Date** - Minqiao Wang, DB Product Management, Jan2021
+* **Author** - Minqiao Wang, Jan 2021 
+* **Last Updated By/Date** - Minqiao Wang, Mar 2023
 * **Workshop Expiry Date** - 
